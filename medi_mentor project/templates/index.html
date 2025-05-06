@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medi Mentor - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Welcome to Medi Mentor</h1>
+    <p>Your health, our priority.</p>
+
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/mentors">Mentors</a> |
+        <a href="/contact">Contact</a>
+    </nav>
+
+    <hr>
+
+    <h2>Get Health Advice</h2>
+    <form method="POST">
+        <label for="sickness">Enter a sickness:</label><br>
+        <input type="text" name="sickness" id="sickness" placeholder="e.g. cold, diabetes" required>
+        <button type="submit">Get Advice</button>
+    </form>
+
+    {% if advice %}
+        <h3>Advice:</h3>
+        <p>{{ advice }}</p>
+    {% endif %}
+</body>
+</html>

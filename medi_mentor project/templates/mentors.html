@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medi Mentor - Mentors</title>
+</head>
+<body>
+    <h1>Our Mentors</h1>
+    <ul>
+        {% for mentor in mentors %}
+            <li>{{ mentor.name }} - {{ mentor.specialty }} - {{ mentor.email }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Back to Home</a>
+</body>
+</html>
