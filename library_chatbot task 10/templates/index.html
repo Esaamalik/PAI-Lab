@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Chatbot</title>
+    <style>
+        body { font-family: Arial; margin: 20px; background: #f0f0f0; }
+        .chatbox { width: 400px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px gray; }
+        #chatlog { height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
+        .user, .bot { margin: 5px 0; }
+        .user { text-align: right; color: blue; }
+        .bot { text-align: left; color: green; }
+        input[type="text"] { width: 80%; padding: 8px; }
+        button { padding: 8px 15px; }
+    </style>
+</head>
+<body>
+    <div class="chatbox">
+        <h2>Library Chatbot</h2>
+        <div id="chatlog"></div>
+        <input type="text" id="userInput" placeholder="Ask something..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        function sendMessage() {
+            let userText = document.getElementById("userInput").value;
+            if (userText.trim() === "") return;
+
+            let chatlog = document.getElementById("chatlog");
+            chatlog.innerHTML += `<div class='user'>You: ${userText}</div>`;
+            document.getElementById("userInput").value = "";
+
+            fetch(`/get?msg=${userText}`)
+                .then(response => response.json())
+                .then(data => {
+                    chatlog.innerHTML += `<div class='bot'>Bot: ${data}</div>`;
+                    chatlog.scrollTop = chatlog.scrollHeight;
+                });
+        }
+    </script>
+</body>
+</html>

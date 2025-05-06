@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Joke App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 50px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .joke-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .setup {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .punchline {
+            font-size: 20px;
+            color: #444;
+        }
+        .refresh {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="joke-box">
+        <div class="setup">{{ setup }}</div>
+        <div class="punchline">{{ punchline }}</div>
+        <div class="refresh">
+            <a href="/">Get Another Joke</a>
+        </div>
+    </div>
+</body>
+</html>
